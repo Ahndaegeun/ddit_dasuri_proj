@@ -1,0 +1,8 @@
+package kr.or.ddit.cus.vo;
+
+public class CusVO {
+	private String cusNo;
+	private String cusNm;
+	private String addr;
+	private String hp;
+}

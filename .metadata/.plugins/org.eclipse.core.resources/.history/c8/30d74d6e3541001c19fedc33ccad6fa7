@@ -1,0 +1,9 @@
+package kr.or.ddit.repSer.vo;
+
+public class RepSerVO {
+	private String empNo;
+	private String cusNo;
+	private String serNo;
+	private int perPay;
+	private int repTm;
+}

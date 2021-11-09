@@ -1,0 +1,8 @@
+package kr.or.ddit.emp.vo;
+
+public class EmpVO {
+	private String empNo;
+	private String nm;
+	private String addr;
+	private String hp;
+}
