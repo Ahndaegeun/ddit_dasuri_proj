@@ -1,4 +1,6 @@
 INDEX VERSION 1.131
+/Users/andaegeun/Desktop/dasoori/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/4048369214.index
+/dasuriProj/src/main/java
 /Users/andaegeun/Desktop/dasoori/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1710994375.index
 /dasuriProj/src/main/java
 /Users/andaegeun/Desktop/dasoori/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3657343299.index

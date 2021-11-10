@@ -1,0 +1,6 @@
+package kr.or.ddit.emp.controller;
+
+@Cont
+public class EmpController {
+
+}

@@ -9,4 +9,7 @@ public class EmpVO {
 	private String nm;
 	private String addr;
 	private String hp;
+	private String postNo;
+	private String addr2;
+	private String password;
 }

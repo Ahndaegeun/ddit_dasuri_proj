@@ -7,15 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title><tiles:insertAttribute name="title" /></title>
-<link rel="stylesheet" href="/resources/css/tiles.css">
+<!-- <link rel="stylesheet" href="/resources/css/tiles.css"> -->
 </head>
 <body>
 <tiles:insertAttribute name="header"/>
 
-<main class="container">
-	<tiles:insertAttribute name="aside"/>	
-	<tiles:insertAttribute name="body"/>
-</main>
+<tiles:insertAttribute name="aside"/>	
+<tiles:insertAttribute name="body"/>
 
 <tiles:insertAttribute name="footer"/>
 

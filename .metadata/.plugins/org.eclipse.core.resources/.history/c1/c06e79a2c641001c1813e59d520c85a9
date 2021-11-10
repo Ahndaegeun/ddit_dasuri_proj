@@ -1,0 +1,39 @@
+* {
+	font-size: 50px;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+#header, .container, #footer {
+	width: 100%;
+	margin: 0;
+}
+
+#header {
+	background-color: green;
+	height: 200px;
+}
+
+.container {
+	height: 500px;
+	display: flex;
+	justify-content: space-between;
+}
+
+#body {
+	width: 70%;
+	height: 100%;
+	background: red;
+}
+
+#accordionSidebar {
+	width: 20%;
+}
+
+#footer {
+	height: 200px;
+	background: blue;
+}
