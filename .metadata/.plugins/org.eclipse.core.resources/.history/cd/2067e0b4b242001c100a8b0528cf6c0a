@@ -1,0 +1,8 @@
+package kr.or.ddit.cus.vo;
+
+import lombok.Data;
+
+@Data
+public class CardVO {
+	
+}

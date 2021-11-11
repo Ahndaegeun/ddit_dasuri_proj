@@ -1,0 +1,22 @@
+package kr.or.ddit.cus.vo;
+
+import java.util.Date;
+import java.util.List;
+
+import lombok.Data;
+
+@Data 
+public class Member {
+   private String userId;
+   private String userName;
+   private String email;
+   private String password;
+   private String introduction;
+   private List<String> hobbyList;
+   private String developer;
+   private boolean foreigner;
+   private String gender;
+   private String nationality;
+   private List<String> carList;
+   private Date dateOfBirth;
+}

@@ -1,0 +1,16 @@
+package kr.or.ddit.cus.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class CusController {
+
+	@GetMapping("/cus/reg")
+	public String reg(Model model) {
+		
+		model.addAttribute("member", new Member());
+		return "cus/registerForm";
+	}
+}

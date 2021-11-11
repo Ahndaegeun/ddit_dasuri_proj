@@ -6,12 +6,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.or.ddit.emp.service.EmpService;
 import kr.or.ddit.emp.vo.EmpVO;
-import kr.or.ddit.emp.vo.Member;
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -30,13 +35,40 @@ public class EmpController {
 	}
 	
 	@GetMapping("/register")
-	public String register() {
+	public String register(Model model) {
+		logger.info("register View");
+		model.addAttribute("emp", new EmpVO());
 		return "emp/register";
 	}
 	
-	@GetMapping("/register02")
-	public String registerForm02(Model model) {
-		model.addAttribute("member", new Member());
-		return "emp/registerForm";
+	@PostMapping("/register")
+	public String registerPro(@ModelAttribute("emp") @Validated EmpVO emp,
+							BindingResult result) {
+		logger.info("register Pro");
+		
+		if(result.hasErrors()) {
+			List<ObjectError> allErrors = result.getAllErrors();
+			List<ObjectError> globalErrors = result.getGlobalErrors();
+			List<FieldError> fieldErrors = result.getFieldErrors();
+			
+			for(ObjectError or : allErrors) {
+				logger.info(or.toString());
+			}
+			logger.info("========================================");
+			for(ObjectError or : globalErrors) {
+				logger.info(or.toString());
+			}
+			logger.info("========================================");
+			for(FieldError or : fieldErrors) {
+				logger.info(or.getDefaultMessage());
+			}
+			
+			
+			return "emp/register";
+		}
+		
+		
+		return "redirect:/emp/list";
 	}
+	
 }

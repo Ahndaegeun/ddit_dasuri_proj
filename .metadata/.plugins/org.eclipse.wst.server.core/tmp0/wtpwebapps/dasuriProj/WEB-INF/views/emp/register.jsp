@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +29,6 @@
 <body class="bg-gradient-primary">
 
     <div class="container">
-
         <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
@@ -39,36 +39,56 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">직원 등록</h1>
                             </div>
-                            <form class="user">
+                            <form:form modelAttribute="emp" method="post" class="user" action="/emp/register">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="First Name">
+                                        <form:input path="empNo" class="form-control form-control-user"
+                                            placeholder="직원번호" />
+                                        <font color="red" size="1"><form:errors path="empNo"/></font>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="Last Name">
+                                        <form:input path="nm" class="form-control form-control-user"
+                                            placeholder="이름" />
+                                        <font color="red" size="1"><form:errors path="nm"/></font>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Email Address">
+                                    <form:input path="hp" type="email" class="form-control form-control-user"
+                                        placeholder="연락처"/>
+                                    <font color="red" size="1"><form:errors path="hp"/></font>
+                                </div>
+                                <div class="form-group">
+                                    <form:input path="postNo" class="form-control form-control-user"
+                                        placeholder="우편번호"/>
+                                    <font color="red" size="1"><form:errors path="postNo"/></font>
+                                </div>
+                                <div class="form-group">
+                                    <form:input path="addr" class="form-control form-control-user"
+                                        placeholder="주소"/>
+                                    <font color="red" size="1"><form:errors path="addr"/></font>
+                                </div>
+                                <div class="form-group">
+                                    <form:input path="addr2" class="form-control form-control-user"
+                                        placeholder="상세주소"/>
+                                    <font color="red" size="1"><form:errors path="addr2"/></font>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
+                                        <form:input path="password" class="form-control form-control-user"
+                                            placeholder="비밀번호" />
+	                                    <font color="red" size="1"><form:errors path="password"/></font>
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repeat Password">
+                                            placeholder="비밀번호 확인" />
                                     </div>
                                 </div>
-                                <a href="login.html" class="btn btn-primary btn-user btn-block">
+                                
+                                <a href="#" id="idSubmit" class="btn btn-primary btn-user btn-block">
                                     Register Account
                                 </a>
                                 
-                            </form>
+                            </form:form>
                             <hr>
                             <div class="text-center">
                                 <a class="small" href="forgot-password.html">Forgot Password?</a>
@@ -93,6 +113,14 @@
 
     <!-- Custom scripts for all pages-->
     <script src="../../resources/js/sb-admin-2.min.js"></script>
+    
+    <script type="text/javascript">
+    	$(function() {
+    		$('#idSubmit').on('click', function() {
+    			$('.user').submit()
+    		})
+    	})
+    </script>
 
 </body>
 

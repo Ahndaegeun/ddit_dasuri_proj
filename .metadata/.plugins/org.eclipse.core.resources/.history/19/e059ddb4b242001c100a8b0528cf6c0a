@@ -1,0 +1,5 @@
+package kr.or.ddit.cus.vo;
+
+public class Card {
+
+}

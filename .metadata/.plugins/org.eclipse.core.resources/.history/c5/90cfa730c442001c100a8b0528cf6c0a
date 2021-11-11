@@ -1,0 +1,53 @@
+package kr.or.ddit.emp.controller;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import kr.or.ddit.emp.service.EmpService;
+import kr.or.ddit.emp.vo.EmpVO;
+import lombok.RequiredArgsConstructor;
+
+@Controller
+@RequestMapping("/emp")
+@RequiredArgsConstructor
+public class EmpController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(EmpController.class);
+	private final EmpService empService;
+
+	@GetMapping("/list")
+	public String list(Model model) throws Exception {
+		List<EmpVO> findAll = empService.findAll();
+		model.addAttribute("list", findAll);
+		return "emp/list";
+	}
+	
+	@GetMapping("/register")
+	public String register(Model model) {
+		logger.info("register View");
+		model.addAttribute("emp", new EmpVO());
+		return "emp/register";
+	}
+	
+	@PostMapping("/register")
+	public String registerPro(@ModelAttribute("emp") @Validated EmpVO emp,
+							BindingResult result) {
+		logger.info("register Pro");
+		
+		
+		
+		
+		return "redirect:/emp/list";
+	}
+	
+}
