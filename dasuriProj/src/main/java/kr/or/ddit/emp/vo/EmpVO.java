@@ -4,10 +4,11 @@ import java.io.Serializable;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
+@Data
 public class EmpVO implements Serializable {
 	private static final long serialVersionUID = 2083765061971985748L;
 

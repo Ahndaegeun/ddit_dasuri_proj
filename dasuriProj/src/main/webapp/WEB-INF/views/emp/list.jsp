@@ -287,7 +287,7 @@
                                     	<c:forEach items="${list}" var="row">
                                         <tr>
                                             <td>${row.empNo}</td>
-                                            <td>${row.nm}</td>
+                                            <td><a href="/emp/detail?empNo=${row.empNo}">${row.nm}</a></td>
                                             <td>${row.hp}</td>
                                             <td>${row.addr}</td>
                                         </tr>

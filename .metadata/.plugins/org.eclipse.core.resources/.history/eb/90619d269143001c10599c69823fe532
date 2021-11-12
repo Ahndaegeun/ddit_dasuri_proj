@@ -1,0 +1,9 @@
+package kr.or.ddit.article.vo;
+
+import lombok.Data;
+
+@Data
+public class ArticleContentVO {
+	private int articleNo;
+	private String content;
+}

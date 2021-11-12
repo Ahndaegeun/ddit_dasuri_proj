@@ -1,0 +1,9 @@
+package kr.or.ddit.article.vo;
+
+import lombok.Data;
+
+@Data
+public class WriterVO {
+	private String writerId;
+	private String writerName;
+}

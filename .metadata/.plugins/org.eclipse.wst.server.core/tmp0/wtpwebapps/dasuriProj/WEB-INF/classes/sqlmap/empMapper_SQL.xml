@@ -6,9 +6,50 @@
 <mapper namespace="kr.or.ddit.emp.mapper.EmpMapper">
 
 	<select id="findAll" resultType="empVO">
-		select * from emp
-		 order by emp_no asc
+		SELECT * FROM EMP
+		 ORDER BY EMP_NO ASC
 	</select>
 	
-
+	<select id="findByNo" parameterType="string" resultType="empVO">
+		SELECT *
+		  FROM EMP
+		 WHERE EMP_NO = #{empNo}
+	</select>
+	
+	<insert id="save" parameterType="empVO">
+		MERGE INTO EMP A
+		USING DUAL
+		   ON (A.EMP_NO = #{empNo})
+		 WHEN MATCHED THEN
+			UPDATE SET A.NM = #{nm},
+					   A.ADDR = #{addr},
+					   A.HP = #{hp},
+					   A.POST_NO = #{postNo},
+					   A.ADDR2 = #{addr2},
+					   A.PASSWORD = #{password}
+		 WHEN NOT MATCHED THEN
+			INSERT (
+				EMP_NO,
+				NM,
+				ADDR,
+				HP,
+				POST_NO,
+				ADDR2,
+				PASSWORD
+			) VALUES (
+				(SELECT NVL(MAX(TO_NUMBER(EMP_NO)), 0) + 1 
+				   FROM EMP),
+				#{nm},
+				#{addr},
+				#{hp},
+				#{postNo},
+				#{addr2},
+				#{password}
+			)
+	</insert>
+	
+	<select id="autoEmpNo" resultType="String">
+		SELECT NVL(MAX(TO_NUMBER(EMP_NO)), 0) + 1 
+  		  FROM EMP
+	</select>
 </mapper>

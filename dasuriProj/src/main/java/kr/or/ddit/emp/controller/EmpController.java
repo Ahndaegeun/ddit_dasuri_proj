@@ -37,7 +37,12 @@ public class EmpController {
 	@GetMapping("/register")
 	public String register(Model model) {
 		logger.info("register View");
-		model.addAttribute("emp", new EmpVO());
+		EmpVO emp = new EmpVO();
+		
+		String autoEmpNo = empService.autoEmpNo();
+		emp.setEmpNo(autoEmpNo);
+		
+		model.addAttribute("emp", emp);
 		return "emp/register";
 	}
 	
@@ -47,26 +52,40 @@ public class EmpController {
 		logger.info("register Pro");
 		
 		if(result.hasErrors()) {
-			List<ObjectError> allErrors = result.getAllErrors();
-			List<ObjectError> globalErrors = result.getGlobalErrors();
-			List<FieldError> fieldErrors = result.getFieldErrors();
-			
-			for(ObjectError or : allErrors) {
-				logger.info(or.toString());
-			}
-			logger.info("========================================");
-			for(ObjectError or : globalErrors) {
-				logger.info(or.toString());
-			}
-			logger.info("========================================");
-			for(FieldError or : fieldErrors) {
-				logger.info(or.getDefaultMessage());
-			}
-			
-			
+//			List<ObjectError> allErrors = result.getAllErrors();
+//			List<ObjectError> globalErrors = result.getGlobalErrors();
+//			List<FieldError> fieldErrors = result.getFieldErrors();
 			return "emp/register";
 		}
 		
+		int insertResult = empService.save(emp);
+		
+		
+		return "redirect:/emp/list";
+	}
+	
+	@GetMapping("/detail")
+	public String detail(String empNo, Model model) {
+		EmpVO findEmp = empService.findByNo(empNo);
+		model.addAttribute("emp", findEmp);
+		return "emp/detail";
+	}
+	
+	@PostMapping("/detail")
+	public String detailPro(@ModelAttribute("emp") @Validated EmpVO emp,
+			BindingResult result, Model model) {
+		logger.info("register Pro");
+		
+		if(result.hasErrors()) {
+//			List<ObjectError> allErrors = result.getAllErrors();
+//			List<ObjectError> globalErrors = result.getGlobalErrors();
+//			List<FieldError> fieldErrors = result.getFieldErrors();
+			model.addAttribute("emp", emp);
+			return "emp/detail";
+		}
+		
+		int insertResult = empService.save(emp);
+		  
 		
 		return "redirect:/emp/list";
 	}

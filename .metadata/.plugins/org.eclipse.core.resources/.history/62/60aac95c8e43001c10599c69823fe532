@@ -1,0 +1,11 @@
+package kr.or.ddit.article.vo;
+
+public class WriterVO {
+	priavte String ARTICLE_NO;
+	priavte String WRITER_ID;
+	priavte String WRITER_NAME;
+	priavte String TITLE;
+	priavte String REGDATE;
+	priavte String MODDATE;
+	priavte String READ_CNT;
+}

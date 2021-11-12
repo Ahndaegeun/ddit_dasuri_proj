@@ -29,17 +29,17 @@
 		<div class="sidebar-heading">Interface</div>
 
 		<!-- Nav Item - Pages Collapse Menu -->
-		<li class="nav-item"><a class="nav-link collapsed" href="#"
+		<li class="nav-item"><a class="nav-link" href="#"
 			data-toggle="collapse" data-target="#collapseTwo"
 			aria-expanded="true" aria-controls="collapseTwo"> <i
-				class="fas fa-fw fa-cog"></i> <span>Components</span>
+				class="fas fa-fw fa-cog"></i> <span>직원관리</span>
 		</a>
 			<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 				data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
 					<h6 class="collapse-header">Custom Components:</h6>
-					<a class="collapse-item" href="buttons.html">Buttons</a> <a
-						class="collapse-item" href="cards.html">Cards</a>
+					<a class="collapse-item" href="/emp/list">직원목록</a> <a
+						class="collapse-item" href="/emp/register">직원등록</a>
 				</div>
 			</div></li>
 

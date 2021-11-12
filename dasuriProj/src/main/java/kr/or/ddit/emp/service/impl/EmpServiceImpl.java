@@ -19,4 +19,19 @@ public class EmpServiceImpl implements EmpService {
 	public List<EmpVO> findAll() throws Exception{
 		return empMapper.findAll();
 	}
+	
+	@Override
+	public int save(EmpVO emp) {
+		return empMapper.save(emp);
+	}
+	
+	@Override
+	public String autoEmpNo() {
+		return empMapper.autoEmpNo();
+	}
+	
+	@Override
+	public EmpVO findByNo(String empNo) {
+		return empMapper.findByNo(empNo);
+	}
 }

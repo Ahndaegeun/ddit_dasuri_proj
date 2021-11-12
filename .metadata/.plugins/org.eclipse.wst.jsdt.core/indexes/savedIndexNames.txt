@@ -1,10 +1,8 @@
 INDEX VERSION 1.4+/Users/andaegeun/Desktop/dasoori/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
 4048369214.index
-2212711403.index
 857508327.index
 486643175.index
-286473874.index
-4048369214.index
 1892313003.index
-4006773615.index
+2212711403.index
+286473874.index
 3268513848.index

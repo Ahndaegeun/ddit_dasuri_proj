@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.or.ddit.emp.mapper.EmpMapper">
+
+	<select id="findAll" resultType="empVO">
+		SELECT * FROM EMP
+		 ORDER BY EMP_NO ASC
+	</select>
+	
+	<select id="findByNo" parameterType="string" resultType="empVO">
+		SELECT *
+		  FROM EMP
+		 WHERE EMP_NO = #{empNo}
+	</select>
+	
+	<insert id="save" parameterType="empVO">
+		INSERT INTO emp (
+			EMP_NO,
+			NM,
+			ADDR,
+			HP,
+			POST_NO,
+			ADDR2,
+			PASSWORD
+		) VALUES (
+			(SELECT NVL(MAX(TO_NUMBER(EMP_NO)), 0) + 1 
+  			   FROM EMP),
+			#{nm},
+			#{addr},
+			#{hp},
+			#{postNo},
+			#{addr2},
+			#{password}
+		)
+	</insert>
+	
+	<select id="autoEmpNo" resultType="String">
+		SELECT NVL(MAX(TO_NUMBER(EMP_NO)), 0) + 1 
+  		  FROM EMP
+	</select>
+</mapper>
